@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Web Application</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:insert="fragments/header :: header"></div>
+<div class="container w-50 p-3">
+    <h1 class="display-5">Sign Up</h1>
+
+    <form action="#" th:action="@{/signup}" method="POST">
+
+        <div id="success-msg" class="alert alert-success"
+             th:if="${signupSuccess}">
+            Successfully signed up! Please <a th:href="@{/login}">login</a>.
+        </div>
+        <div id="error-msg" class="alert alert-danger"
+             th:if="${signupError}">
+            <span th:text="${signupError}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="inputFirstName">First Name</label>
+            <input id="inputFirstName" type="input" class="form-control"
+                   name="firstName">
+        </div>
+        <div class="mb-3">
+            <label for="inputLastName">Last Name</label>
+            <input id="inputLastName" type="input" class="form-control"
+                   name="lastName">
+        </div>
+        <div class="mb-3">
+            <label for="inputUsername">Username</label>
+            <input id="inputUsername" type="input" class="form-control"
+                   name="username">
+        </div>
+        <div class="mb-3">
+            <label for="inputPassword">Password</label>
+            <input id="inputPassword" type="password" class="form-control"
+                   name="password">
+        </div>
+        <div class="mb-3">
+            <label for="inputRole">Role</label>
+            <select id="inputRole" class="form-select" name="role">
+                <option value="ROLE_USER" selected>User</option>
+                <option value="ROLE_ADMIN">Admin</option>
+            </select>
+        </div>
+        <button id="submit-button" type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+</div>
+
+</body>
+</html>
